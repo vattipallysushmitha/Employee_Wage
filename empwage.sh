@@ -1,14 +1,21 @@
-c#!/bin/bash -x
-AB=0
-emp=$((RANDOM%2))
-if [ $AB -eq $emp ]
-then
-        WPH=20
-        hour=8
-        salary=$(($WPH*$hour))
-        echo "salary=" $salary
-else
-        salary=0
-        echo "salary=" $salary
-fi
+#!/bin/bash -x
+parttime=1
+fulltime=2
+RPH=20
+emp=$((RANDOM%3))
+        case $emp in
+                $fulltyme)
+                                emphrs=8
+                                ;;
+                $parttime )
+                                emphrs=4
+
+                                ;;
+                         *)
+                                emphrs=0
+                                ;;
+        esac
+                salary=$(($emphrs*$RPH))
+                echo "salary" $salary
+
 
