@@ -1,23 +1,27 @@
 #!/bin/bash -x
 parttym=1
 fulltym=2
-totalsalary=0
+maxhrsinmonth=100
 emprph=20
 noworkingdays=20
-for(( day=1; day<=$noworkingdays; day++ ))
-        do
-                empcheck=$((RANDOM%2+1))
+totalemphrs=0
+totalworkingdays=0
+        while [[ $totalemphrs -lt $maxhrsinmonth && $totalworkingdays -lt $noworkingdays ]]
+                do
+                        ((totalworkingdays++))
+                empcheck=$((RANDOM%3))
                 case $empcheck in
                 $fulltym) emphr=8
                                 ;;
-                $prttym) emprph=4
+                $prttym) emphr=4
                                 ;;
                 *) emphr=0
                         ;;
 esac
-        salary=$(( $emphr + $emprph ))
-        totalsalary=$(( $totalsalary + $salary ))
+        totalemphrs=$(($totalemphr+$emphr ))
         done
-        echo "monthly salary is:" $totalsalary
+        totalsalary=$(( $totalemphrs+$emprph))
+        echo "total working hours reached per month" $totalsalary
+
 
 
